@@ -3,7 +3,7 @@ import { mainContext } from "../context-data/mainContext";
 import Style from "../styles/UserList.module.css"
 
 export default function UserList() {
-    const {data} = useContext(mainContext);
+    const {data, setPreview} = useContext(mainContext);
 
     if(data !== null && data === undefined) return (<>Failed to fetch data from the remote host</>)
     else if(data == null) {
@@ -23,7 +23,12 @@ export default function UserList() {
                     <tbody className={Style.tbody}>
                         {data.map(user => {
                             return (
-                                <tr key={user.id} id={String(user.id)} className={Style.tr}>
+                                <tr 
+                                key={user.id} 
+                                id={String(user.id)} 
+                                className={Style.tr}
+                                onClick={() => setPreview(user)}
+                                >
                                     <td className={Style.td}>{user.name}</td>
                                     <td className={Style.td}>{user.email}</td>
                                 </tr>
