@@ -1,0 +1,42 @@
+.card {
+    background-color: #1e293b;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    color: #f1f5f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    max-width: 350px;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.name {
+    font-size: 1.5rem;
+    color: #facc15;
+    margin-bottom: 6px;
+}
+
+.email {
+    color: #38bdf8;
+    margin-bottom: 8px;
+}
+
+.username {
+    color: #a5f3fc;
+    margin-bottom: 12px;
+}
+
+.address, .company {
+    background-color: #0f172a;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+h4 {
+    color: #34d399;
+    margin-bottom: 5px;
+}
