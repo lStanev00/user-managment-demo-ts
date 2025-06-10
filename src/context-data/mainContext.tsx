@@ -1,11 +1,27 @@
-import { createContext, ReactNode }  from "react";
+import { createContext, ReactNode, useEffect, useState }  from "react";
+import type User from "../types/User.ts";
 
-export const  mainContext = createContext();
+export const  mainContext = createContext({});
 
 export function ContextProvider({children}: {children : ReactNode}) {
+    const [data, setData] = useState<User[]>([]);
+
+    useEffect(() => {
+        (async () => {
+            const url: string = `https://jsonplaceholder.typicode.com/users`
+
+            const req = await fetch(url);
+
+            if(req.ok) {
+                const data: User[] = await req.json();
+                setData(data);
+            }
+        })();
+
+    }, []);
 
     return (
-        <mainContext.Provider value={}>
+        <mainContext.Provider value={{ data }}>
             {children}
         </mainContext.Provider>
     )
