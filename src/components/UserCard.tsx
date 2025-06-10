@@ -8,7 +8,7 @@ export default function UserCard() {
         <div className={Style.card}>
             <h2 className={Style.name}>{user.name}</h2>
             <p className={Style.email}>{user.email}</p>
-            <p className={Style.username}>👤 @{user.username}</p>
+            <p className={Style.username}>@{user.username}</p>
             <div className={Style.address}>
                 <h4>Address</h4>
                 <p>{user.address.street}, {user.address.suite}</p>

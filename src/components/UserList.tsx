@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { mainContext } from "../context-data/mainContext";
 import Style from "../styles/UserList.module.css"
+import UserCard from "./UserCard";
 
 export default function UserList() {
-    const {data, setPreview} = useContext(mainContext);
+    const {data, preview, setPreview} = useContext(mainContext);
 
     if(data !== null && data === undefined) return (<>Failed to fetch data from the remote host</>)
     else if(data == null) {
@@ -36,6 +37,8 @@ export default function UserList() {
                         })}
                     </tbody>
                 </table>
+
+                {preview !== null && <UserCard />}
             </>
         )
     }
