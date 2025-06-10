@@ -14,15 +14,21 @@ export function ContextProvider({children}: {children : ReactNode}) {
 
     useEffect(() => {
         (async () => {
-            const url: string = `https://jsonplaceholder.typicode.com/users`
-
-            const req = await fetch(url);
-
-            if(req.ok) {
-                const data: User[] = await req.json();
-                setData(data);
-            } else {
-                setData(undefined);
+            try {
+                const url: string = `https://jsonplaceholder.typicode.com/users`
+    
+                const req = await fetch(url);
+    
+                if(req.ok) {
+                    const data: User[] = await req.json();
+                    setData(data);
+                } else {
+                    setData(undefined);
+                }
+                
+            } catch (error) {
+                console.warn(error);
+                setData(undefined)
             }
         })();
 

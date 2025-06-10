@@ -4,7 +4,7 @@ import { mainContext } from "../context-data/mainContext";
 export default function UserList() {
     const {data} = useContext(mainContext);
 
-    if(data == undefined) return (<>Failed to fetch data from the remote host</>)
+    if(data !== null && data === undefined) return (<>Failed to fetch data from the remote host</>)
     else if(data == null) {
         return(<>LOADING . . . </>)
     } else if (data.length == 0 ) {
