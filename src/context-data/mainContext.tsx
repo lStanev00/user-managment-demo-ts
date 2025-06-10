@@ -1,7 +1,13 @@
 import { createContext, ReactNode, useEffect, useState }  from "react";
 import type User from "../types/User.ts";
 
-export const  mainContext = createContext({});
+interface MainContextType {
+    data: User[];
+}
+
+export const  mainContext = createContext<MainContextType>({
+    data: [],
+});
 
 export function ContextProvider({children}: {children : ReactNode}) {
     const [data, setData] = useState<User[]>([]);
