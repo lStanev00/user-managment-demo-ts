@@ -2,7 +2,7 @@ import { createContext, ReactNode, useEffect, useState }  from "react";
 import type User from "../types/User.ts";
 
 interface MainContextType {
-    data: User[];
+    data: User[] | undefined | null;
 }
 
 export const  mainContext = createContext<MainContextType>({
@@ -10,7 +10,7 @@ export const  mainContext = createContext<MainContextType>({
 });
 
 export function ContextProvider({children}: {children : ReactNode}) {
-    const [data, setData] = useState<User[]>([]);
+    const [data, setData] = useState<User[]| undefined | null>(null);
 
     useEffect(() => {
         (async () => {
@@ -21,6 +21,8 @@ export function ContextProvider({children}: {children : ReactNode}) {
             if(req.ok) {
                 const data: User[] = await req.json();
                 setData(data);
+            } else {
+                setData(undefined);
             }
         })();
 

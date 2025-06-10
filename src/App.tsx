@@ -1,10 +1,11 @@
+import UserList from "./components/UserList"
 import { ContextProvider } from "./context-data/mainContext"
 
 function App() {
 
   return (
     <ContextProvider>
-      <div>loaded</div>
+      <UserList />
     </ContextProvider>
   )
 }
