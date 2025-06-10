@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { mainContext } from "../context-data/mainContext";
+import Style from "../styles/UserList.module.css"
 
 export default function UserList() {
     const {data} = useContext(mainContext);
@@ -12,25 +13,24 @@ export default function UserList() {
     } else if(data.length != 0) {
         return (
             <>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-            </table>
-            <tbody>
-
-                {data.map(user => {
-                    return (
-                        <tr key={user.id} id={String(user.id)} >
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
+                <table className={Style.table}>
+                    <thead className={Style.thead}>
+                        <tr>
+                            <th className={Style.th}>Name</th>
+                            <th className={Style.th}>Email</th>
                         </tr>
-                    )
-                })}
-            </tbody>
+                    </thead>
+                    <tbody className={Style.tbody}>
+                        {data.map(user => {
+                            return (
+                                <tr key={user.id} id={String(user.id)} className={Style.tr}>
+                                    <td className={Style.td}>{user.name}</td>
+                                    <td className={Style.td}>{user.email}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
             </>
         )
     }

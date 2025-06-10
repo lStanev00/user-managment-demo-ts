@@ -1,0 +1,31 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: sans-serif;
+    font-size: 0.95rem;
+}
+
+.thead {
+    background-color: #0f172a;
+    color: #facc15;
+}
+
+.th, .td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #334155;
+}
+
+.tr:hover {
+    background-color: #334155;
+    cursor: pointer;
+}
+
+.tbody {
+    background-color: #1e293b;
+}
