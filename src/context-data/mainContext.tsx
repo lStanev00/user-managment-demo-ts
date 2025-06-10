@@ -3,14 +3,21 @@ import type User from "../types/User.ts";
 
 interface MainContextType {
     data: User[] | undefined | null;
+    preview: User | null;
+    setPreview: React.Dispatch<React.SetStateAction<User | null>>;
+
 }
 
 export const  mainContext = createContext<MainContextType>({
     data: [],
+    preview: null,
+    setPreview: () => {},
+
 });
 
 export function ContextProvider({children}: {children : ReactNode}) {
     const [data, setData] = useState<User[]| undefined | null>(null);
+    const [preview, setPreview]= useState<User | null>(null);
 
     useEffect(() => {
         (async () => {
@@ -35,7 +42,7 @@ export function ContextProvider({children}: {children : ReactNode}) {
     }, []);
 
     return (
-        <mainContext.Provider value={{ data }}>
+        <mainContext.Provider value={{ data, preview, setPreview }}>
             {children}
         </mainContext.Provider>
     )
